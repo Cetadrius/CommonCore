@@ -17,7 +17,7 @@ int	ft_atoi(char *str)
 	int	sign;
 	int	rslt;
 	int	i;
-	
+
 	sign = 1;
 	result = 0;
 	i = 0;

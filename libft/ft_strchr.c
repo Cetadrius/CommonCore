@@ -14,7 +14,7 @@ char	*strchr(const char *s, int c)
 {
 	char	*a;
 	int		i;
-	
+
 	i = 0;
 	a = (char *)a;
 	while (s[i] != '\0')
@@ -27,7 +27,7 @@ char	*strchr(const char *s, int c)
 	}
 	if (c == '\0')
 	{
-		return (a +i);
+		return (a + i);
 	}
 	return (0);
 }

@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	
+	size_t	i;
+	size_t	j;
+
 	i = 0;
 	j = 0;
 	while (src[j] != '\0')

@@ -12,7 +12,7 @@
 
 int	ft_isaplha(char c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c>= 'a' && c <= 'z'))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 	{
 		return (1);
 	}

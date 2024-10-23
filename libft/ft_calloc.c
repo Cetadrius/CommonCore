@@ -10,28 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.a"
+#include "libft.h"
 #include <stdlib.h>
-
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	total_size;
 	void	*st;
-	
+
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-
 	if (nmemb > SIZE_MAX / size)
 	{
 		return (NULL);
 	}
-
 	total_size = nmemb * size;
 	st = malloc(total_size);
-
 	if (st == NULL)
 	{
 		return (NULL);

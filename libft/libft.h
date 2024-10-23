@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <stdint.h>
 
-void	bzero(void *s, unsigned int n);
+void	bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -41,7 +41,7 @@ char	**ft_split(char const *s, char c);
 char	*strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *dst, const char *src, unsigned int size);
+size_t	ft_strlcat(char *dst, const char *src, sie_t size);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 int		ft_strlen(char *c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));

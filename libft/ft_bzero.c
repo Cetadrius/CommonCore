@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	bzero(void *s, unsigned int n)
+void	bzero(void *s, size_t n)
 {
 	unsigned int	i;
 

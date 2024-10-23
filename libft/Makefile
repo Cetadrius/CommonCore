@@ -23,7 +23,7 @@ SRCS	= ft_isalpha.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 		ft_putnbr_fd.c ft_strdup.c ft_calloc.c \
 
-OBJS	= ${SRCS:.c = .o}
+OBJS	= ${SRCS:.c=.o}
 CC		= cc
 RM		= rm -f
 CFLAGS		= -Wall -Wextra -Werror
@@ -43,4 +43,4 @@ fclean:	clean
 		
 re:		fclean $(NAME)
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re

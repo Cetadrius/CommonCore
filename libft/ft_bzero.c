@@ -14,14 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*ptr;
-	size_t	i;
+	unsigned char	*ptr;
 
-	i = 0;
-	ptr = (char *) s;
-	while (i <= n)
+	ptr = (unsigned char *)s;
+	while (n--)
 	{
-		ptr[i] = '\0';
-		i++;
+		*ptr = '\0';
+		ptr++;
 	}
 }

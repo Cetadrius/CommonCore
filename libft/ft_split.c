@@ -104,10 +104,6 @@ char	**ft_split(char const *s, char c)
 	}
 	str = (char *)s;
 	table = malloc(sizeof(char *) * (wordcounter(str, c) + 1));
-	if (!table)
-	{
-		return (NULL);
-	}
 	table[i] = allocate(table, str, c);
 	return (table);
 }

@@ -15,25 +15,23 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t			i;
-	size_t			j;
 	char			*str;
 
-	if (s != NULL)
+	if (!s)
 		return (NULL);
+	if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i] != '\0')
+	while (i < len)
 	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[j];
-			j++;
-		}
+		str[i] = s[start + i];
 		i++;
 	}
-	str[j] = '\0';
+	str[i] = '\0';
 	return (str);
 }

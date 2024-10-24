@@ -27,6 +27,7 @@ int	ft_atoi(const char *nptr)
 	{
 		if (nptr[i] == 45)
 			sign *= -1;
+		i++;
 	}
 	while (nptr[i] != '\0' && nptr[i] >= 48 && nptr[i] <= 57)
 	{

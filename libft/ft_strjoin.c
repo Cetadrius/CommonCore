@@ -25,11 +25,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	l1 = ft_strlen(s1);
 	l2 = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (l1 + l2 +1));
-	if (str == '\0')
+	if (str == NULL)
 		return (NULL);
 	while (i < l1)
 	{
-		str[i] = s[i];
+		str[i] = s1[i];
 		i++;
 	}
 	while (j < l2)

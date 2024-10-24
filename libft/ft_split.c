@@ -12,15 +12,14 @@
 
 #include "libft.h"
 
-// number of words
-static int	word(char *str, char c)
+static int	wordcounter(char *str, char c)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		counter;
 
 	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	counter = 0;
+	while (str[i])
 	{
 		while (str[i] == c && str[i])
 		{
@@ -29,32 +28,33 @@ static int	word(char *str, char c)
 		if (str[i] && str[i] != c)
 		{
 			i++;
-			j++;
+			counter++;
 		}
 		while (str[i] && str[i] != c)
 		{
 			i++;
 		}
 	}
-	return (j);
+	return (counter);
 }
 
-static void	*cleanmem(char **mat)
+static void	*ft_free(char **strs, int count)
 {
-	int	i;
+	int		i;
 
 	i = 0;
-	while (str[i] != NULL)
+	while (i < count)
 	{
-		free(mat[i]);
+		free(strs[i]);
 		i++;
 	}
-	free(mat);
+	free(strs);
+	return (NULL);
 }
 
-static int	caracters(char *str, char c)
+static int	caract(char *str, char c)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i] && str[i] != c)
@@ -64,47 +64,50 @@ static int	caracters(char *str, char c)
 	return (i);
 }
 
-static char	allocandfill(char **grd, char *src, char c)
+static char	*allocate(char **table, char *src, char c)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 
 	j = 0;
 	k = 0;
-	while (str[k] == c)
+	while (src[k] == c)
 		k++;
-	while (j < word(src, c))
+	while (j < wordcounter(src, c))
 	{
 		i = 0;
-		grd[j] = malloc(sizeof(char) * (caracters(&src[k], c) + 1));
-		if (grd[j] == NULL)
-			return (cleanmem(grid, j));
-		while (src[k != c && src[k]])
-		{
-			grd[j][i++] = src[k++];
-		}
-		grd[j][i] = '\0';
+		table[j] = malloc(sizeof(char) * (caract(&src[k], c) + 1));
+		if (!table[j])
+			return (ft_free(table, j));
+		while (src[k] != c && src[k])
+			table[j][i++] = src[k++];
+		table[j][i] = '\0';
 		while (src[k] == c && src[k])
 			k++;
 		j++;
 	}
-	grd[j] = Null;
-	return (*grd);
+	table[j] = NULL;
+	return (*table);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		j;
-	char	**grd;
+	int		i;
+	char	**table;
 	char	*str;
 
+	i = 0;
 	if (!s)
+	{
 		return (NULL);
+	}
 	str = (char *)s;
-	grd = ((char *)malloc (sizeof(char) * (word(str + c) + 1)));
-	if (!grd)
+	table = malloc(sizeof(char *) * (wordcounter(str, c) + 1));
+	if (!table)
+	{
 		return (NULL);
-	grd[j] = allocandfill(grd, str, c);
-	return (grd);
+	}
+	table[i] = allocate(table, str, c);
+	return (table);
 }

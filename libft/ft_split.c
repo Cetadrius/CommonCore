@@ -5,105 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 10:09:10 by afilipe-          #+#    #+#             */
-/*   Updated: 2024/10/22 10:09:11 by afilipe-         ###   ########.fr       */
+/*   Created: 2024/10/25 12:42:44 by afilipe-          #+#    #+#             */
+/*   Updated: 2024/10/25 12:42:46 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wordcounter(char *str, char c)
+int	wordcounter(char const *s, char sep)
 {
-	int		i;
-	int		counter;
+	int	count;
 
-	i = 0;
-	counter = 0;
-	while (str[i])
+	count = 0;
+	while (*s)
 	{
-		while (str[i] == c && str[i])
-		{
-			i++;
-		}
-		if (str[i] && str[i] != c)
-		{
-			i++;
-			counter++;
-		}
-		while (str[i] && str[i] != c)
-		{
-			i++;
-		}
+		while (*s == sep && *s)
+			s++;
+		if (*s)
+			count++;
+		while (*s != sep && *s)
+			s++;
 	}
-	return (counter);
+	return (count);
 }
 
-static void	*ft_free(char **strs, int count)
+static int	ft_memory_control(char **str, int pos, size_t m)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while (i < count)
+	str[pos] = malloc(m);
+	if (str[pos] == NULL)
 	{
-		free(strs[i]);
-		i++;
+		while (i < pos)
+		{
+			free(str[i++]);
+		}
+		free (str);
+		return (1);
 	}
-	free(strs);
-	return (NULL);
+	return (0);
 }
 
-static int	caract(char *str, char c)
+static int	ft_allocate(char **str, char const *s, char sep)
 {
-	int		i;
+	size_t	len;
+	size_t	i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
+	len = 0;
+	while (*s)
 	{
-		i++;
+		while (*s == sep && *s)
+			++s;
+		while (*s != sep && *s)
+		{
+			len++;
+			s++;
+		}
+		if (len)
+		{
+			if (ft_memory_control(str, i, len +1))
+				return (1);
+			ft_strlcpy(str[i], s - len, len +1);
+			i++;
+			len = 0;
+		}
 	}
-	return (i);
-}
-
-static char	*allocate(char **table, char *src, char c)
-{
-	int		i;
-	int		j;
-	int		k;
-
-	j = 0;
-	k = 0;
-	while (src[k] == c)
-		k++;
-	while (j < wordcounter(src, c))
-	{
-		i = 0;
-		table[j] = malloc(sizeof(char) * (caract(&src[k], c) + 1));
-		if (!table[j])
-			return (ft_free(table, j));
-		while (src[k] != c && src[k])
-			table[j][i++] = src[k++];
-		table[j][i] = '\0';
-		while (src[k] == c && src[k])
-			k++;
-		j++;
-	}
-	table[j] = NULL;
-	return (*table);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	char	**table;
-	char	*str;
+	size_t	len;
+	char	**strs;
 
-	i = 0;
 	if (!s)
+		return (NULL);
+	len = wordcounter(s, c);
+	strs = malloc((len + 1) * sizeof(char *));
+	if (!strs)
+		return (NULL);
+	if (ft_allocate(strs, s, c))
 	{
 		return (NULL);
 	}
-	str = (char *)s;
-	table = malloc(sizeof(char *) * (wordcounter(str, c) + 1));
-	table[i] = allocate(table, str, c);
-	return (table);
+	strs[len] = NULL;
+	return (strs);
 }

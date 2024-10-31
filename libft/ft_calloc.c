@@ -34,3 +34,22 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_memset(st, 0, total_size);
 	return (st);
 }
+/*
+int	main(void)
+{
+	int	i;
+	
+	i = 0;
+	int *all = (int *)ft_calloc(5, sizeof(int));
+	if (!all)
+	{
+		printf("Failled\n");
+		return (1);
+	}
+	while (i++ < 5)
+	{
+	printf("all[%d] = %d\n", i, all[i]);
+	}
+	free(all);
+	
+}*/

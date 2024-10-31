@@ -35,3 +35,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+/*
+int	main(void)
+{
+	char const *str1 = "Ug Millenium hand and srimp";
+	unsigned int n = 3;
+	size_t l = 9;
+	
+	char *result1 = ft_substr(str1, n, l);
+	printf("the sub string is %s\n", result1);
+	return (0);
+}*/

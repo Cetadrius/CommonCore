@@ -26,3 +26,27 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char str1[] = "NobbyNobbs";
+	int	x = 'N';
+	int	i;
+	char thewatch[sizeof(str1)];
+
+	i = 0;
+	strcpy(thewatch, str1);
+	ft_memset(thewatch, x, ft_strlen(str1));
+	memset(thewatch, x, ft_strlen(str1));
+	if (i < ft_strlen(str1))
+	{
+		printf("Personal (ft_memset): %s\n\n", thewatch);
+		printf("parcial copy;\n");
+		printf("Original (memset): %s\n\n", thewatch);
+	}
+	
+	return (0);
+}*/

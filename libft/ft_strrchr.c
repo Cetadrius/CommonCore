@@ -27,3 +27,18 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
+/*
+#include <string.h>
+
+int	main(void)
+{
+	printf("%s %s\n", ft_strrchr("Weatherwax", 'w'), "-> ft_strrchr");
+	printf("%s %s\n", strrchr("Weatherwax", 'w'), "-> strrchr");
+	printf("%s %s\n", ft_strrchr("Weatherwax", 'e'), "-> ft_strrchr");
+	printf("%s %s\n", strrchr("Weatherwax", 'e'), "-> strrchr");
+	printf("%s %s\n", ft_strrchr("Weatherwax", 'W'), "-> ft_strrchr");
+	printf("%s %s\n", strrchr("Weatherwax", 'W'), "-> strrchr");
+	printf("%s %s\n", ft_strrchr("Weatherwax", 'v'), "-> ft_strrchr");
+	printf("%s %s\n", strrchr("Weatherwax", 'v'), "-> strrchr");
+	return (0);
+}*/

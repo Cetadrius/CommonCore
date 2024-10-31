@@ -31,3 +31,20 @@ char	*ft_strdup(const char *s)
 	str[i] = '\0';
 	return (str);
 }
+/*
+int	main(void)
+{
+	char *f = "Morpork";
+	char *dup = ft_strdup(f);
+	if (dup)
+	{
+	printf("%s\n", dup);
+	free(dup);
+	}
+	else
+	{
+		printf("Allocation Failled");
+	}
+	
+	return (0);
+}*/

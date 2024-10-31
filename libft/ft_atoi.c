@@ -38,3 +38,17 @@ int	ft_atoi(const char *nptr)
 	rslt *= sign;
 	return (rslt);
 }
+/*
+int main(void)
+{
+	printf("%d\n%d\n", ft_atoi(" 	-1234!5+TRAA"), atoi(" 	-1234!5+TRAA"));
+}
+
+void	main(int argc, char *argv)
+{
+	if (argc == 2)
+	{
+		printf("%d\n%d\n", ft_atoi(argv[1]), atoi(argv[1]));
+	}
+}
+*/

@@ -56,3 +56,8 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+/*
+int main(void)
+{
+	printf("%s %s\n", ft_itoa(-125478), "-> ft_itoa");
+}*/

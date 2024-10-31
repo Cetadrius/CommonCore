@@ -31,3 +31,23 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char *str1 = "SrgFredCollon";
+	char *str2 = "SrgFredCollon";
+	char *str3 = "SrgfredCollon";
+	size_t n = ft_strlen(str1);
+	int result1 = ft_memcmp(str1, str2, n);
+	int result2 = ft_memcmp(str1, str3, n);
+	
+	printf("ft_memcmp result: %d\n", result1);
+	printf("ft_memcmp result: %d\n", memcmp(str1, str2, n));
+	printf("ft_memcmp result: %d\n", result2);
+	printf("ft_memcmp result: %d\n", memcmp(str1, str3, n));
+	
+	return (0);
+}*/

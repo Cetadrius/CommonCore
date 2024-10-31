@@ -93,3 +93,20 @@ char	**ft_split(char const *s, char c)
 	strs[len] = NULL;
 	return (strs);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main(void)
+{
+	char const *str1 = "Coal, spikes, chains, axes, maces";
+	char sep = ' ';
+	char **result = ft_split(str1, sep);
+	int i = 0;
+	
+	while (result[i])
+	{
+		printf("things found in a medival fair %s\n", result[i]);
+		i++;
+	}
+}*/

@@ -40,3 +40,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i + j] = '\0';
 	return (str);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main(void)
+{
+	printf("%s %s\n", ft_strjoin("Ahnk", " Mopork"), "teste");
+}*/

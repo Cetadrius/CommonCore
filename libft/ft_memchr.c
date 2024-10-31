@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -29,3 +30,16 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+/*int	main(void)
+{
+	char *str = "SrgCollon";;
+	char c;
+	int	i;
+	
+	c = 'g';
+	i = strlen(str);
+	printf("ft_memchr result: %p\n", ft_memchr(str, c, i));
+	printf("memchr result: %p\n", memchr(str, c, i));
+	
+	return (0);
+}*/

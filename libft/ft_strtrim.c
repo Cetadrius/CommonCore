@@ -37,3 +37,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(str, &s1[i], j - i + 1);
 	return (str);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int	main(void)
+{
+	char const *str1 = "Bahh Humbug Bahh";
+	char const *str2 = "Bahh";
+	
+	printf("Scrooge mosts famous line is, %s\n", ft_strtrim(str1, str2));
+}*/

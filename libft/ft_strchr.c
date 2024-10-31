@@ -27,3 +27,17 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
+/*
+#include <string.h>
+int	main(void)
+{
+	printf("%s %s\n", ft_strchr("Olive", 'A'), "-> ft_strchr");
+	printf("%s %s\n", strchr("Olive", 'A'), "-> strchr");
+	printf("%s %s\n", ft_strchr("Olive", 'l'), "-> ft_strchr");
+	printf("%s %s\n", strchr("Olive", 'l'), "-> strchr");
+	printf("%s %s\n", ft_strchr("Olive", 'e'), "-> ft_strchr");
+	printf("%s %s\n", strchr("Olive", 'e'), "-> strchr");
+	printf("%s %s\n", ft_strchr("Olive", 'v'), "-> ft_strchr");
+	printf("%s %s\n", strchr("Olive", 'v'), "-> strchr");
+	return (0);
+}*/

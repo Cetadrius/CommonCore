@@ -23,3 +23,18 @@ void	ft_bzero(void *s, size_t n)
 		ptr++;
 	}
 }
+/*#include <strings.h>
+
+int main(void)
+{
+	char str1[] = "NobbyNobbs";
+	char str2[] = "NobbyNobbs";
+	
+	ft_bzero(str1, 5);
+	bzero(str2, 5);
+	
+	printf("ft_bzero result: %s\n", str1);
+	printf("bzero result: %s\n", str2);
+	
+	return (0);
+}*/

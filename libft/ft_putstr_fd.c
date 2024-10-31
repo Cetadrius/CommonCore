@@ -20,3 +20,11 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
+/*
+int	main(void)
+{
+	char	s[] = "Ahnk";
+	
+	ft_putstr_fd(s, 1);
+	return (0);
+}*/

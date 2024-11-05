@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int	ft_printnbr(int n)
 {
-	int	l;
+	int		l;
 	char	*number;
 
 	l = 0;
 	number = ft_itoa(n);
 	l = ft_printstr(number);
 	free(n);
-	return(l);
+	return (l);
 }

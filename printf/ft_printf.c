@@ -10,31 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_printf(const char *format, ...)
+#include "printf.h"
+
+int	ft_print_specif(va_list args, const char form)
 {
-	int	i;
-	va_list	args;
-	
+	int	l;
+
+	l = 0;
+	if (form == 'c')
+		l += ft_printc(va_arg(args, int));
+	else if (form == 's')
+		l += ft_printstr(va_arg(args, char *));
+	else if (form == 'p')
+		l += ft_printpoint(va_arg(args, unsigned long));
+	else if (form == 'd' || form == 'i')
+		l += ft_printnbr(va_arg(args, int));
+	else if (form == 'u')
+		l += ft_printunsig(va_arg(args, unsigned int));
+	else if (form == 'x' || form == 'X')
+		l += ft_printhex(va_arg(args, unsigned int), form);
+	else if (form == '%')
+		l += ft_printc('%');
+	return (l);
 }
 
-int	ft_print_specif(const char form, va_list args)
+int	ft_printf(const char *format, ...)
 {
-	int	f;
-	
+	int		i;
+	int		l;
+	va_list	arg;
+
 	i = 0;
-	if (format == 'c')
-		f += ft_printc(va_arg(args, int));
-	else if (format == 's')
-		f += ft_printstr(va_arg(args, char *s));
-	else if (format == 'p')
-		f += ft_printpoint(va_arg(args, unsigned long));
-	else if (format == 'd' || format == 'i')
-		f += ft_printnbr(va_arg(agrs, int));
-	else if (format == 'u')
-		f += ft_printunsig(va_arg(args, unsigned int));
-	else if (format == 'x' || format == 'X')
-		f += ft_printhex(va_arg(args, unsigned int), format);
-	else if (format == '%')
-		f += ft_printc('%');
-	return (f);
+	l = 0;
+	va_start(arg, format);
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+			l = ft_print_specif(format, format[i + 1]);
+			i++;
+		}
+		else
+		{
+			l += ft_printc(format[i]);
+		}
+		i++;
+	}
+	va_end(arg);
+	return (l);
 }

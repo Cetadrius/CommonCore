@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int	ft_printstr(char *s)
 {
 	int	i;
-	
+
 	i = 0;
 	if (s == NULL)
 	{

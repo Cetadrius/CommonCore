@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
-int	t_printptr(unsigned long pointer)
+int	ft_printptr(unsigned long pointer)
 {
 	int	l;
-	
+
 	l = 0;
 	if (!pointer)
 	{

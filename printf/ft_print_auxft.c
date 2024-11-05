@@ -1,49 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_print_auxft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 09:56:02 by afilipe-          #+#    #+#             */
-/*   Updated: 2024/11/04 09:56:03 by afilipe-         ###   ########.fr       */
+/*   Created: 2024/11/05 09:01:05 by afilipe-          #+#    #+#             */
+/*   Updated: 2024/11/05 09:01:06 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printhex(unsigned int n, const char c)
+unsigned int	ft_numsize(unsigned int n)
 {
+	unsigned int	l;
+
+	l = 0;
 	if (n == 0)
 	{
-		return (ft_printc('0'));
+		return (1);
 	}
-	else
+	while (n != 0)
 	{
-		return (ft_phex(n, c));
+		n /= 10;
+		l++;
 	}
-	return (0);
+	return (l);
 }
 
-int	ft_phex(unsigned int n, const char c)
+char	*ft_uitoa(unsigned int n)
 {
-	char	*hx;
-	int		res;
+	unsigned int	l;
+	char			*str;
 
-	res = 0;
-	if (c == 'x')
+	l = ft_numsize(n);
+	str = (char *)malloc(sizeof(char) * (l + 1));
+	if (str == NULL)
+		return (NULL);
+	if (n == 0)
+		str[0] = '0';
+	str[l] = '\0';
+	while (n != 0)
 	{
-		hx = "0123456789abcdef";
+		str[l - 1] = (n % 10) + '0';
+		n = n / 10;
+		l--;
 	}
-	else
-	{
-		hx = "0123456789ABCDEF";
-	}
-	if (n >= 16)
-	{
-		res += ft_phex(n / 16, c);
-	}
-	write(1, &hx[n % 16], 1);
-	res++;
-	return (res);
+	return (str);
 }

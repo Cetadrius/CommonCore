@@ -10,6 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
+int	ft_printunsig(unsigned int n)
+{
+	char	*str;
+	int		l;
 
+	l = 0;
+	if (n == 0)
+	{
+		l += write(1, "0", 1);
+	}
+	else
+	{
+		str = ft_uitoa((unsigned int)n);
+		l = ft_printstr(str);
+		free(str);
+	}
+	return (l);
+}

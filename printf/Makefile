@@ -22,11 +22,12 @@ INC_PATH		= inc
 LIB_PATH		= lib
 
 SRCS	= ft_print_auxft.c \
-				ft_printc.c ft_printf.c ft_printhex \
+				ft_printc.c ft_printf.c ft_printhex.c \
 				ft_printnbr.c ft_printpoint.c ft_printstr.c \
 				ft_printunsig.c
 
 OBJS	= ${SRCS:.c=.o}
+LIBFT = ./libft/libft.a
 CC		= cc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_print_specif(va_list args, const char form)
 {
@@ -22,7 +22,7 @@ int	ft_print_specif(va_list args, const char form)
 	else if (form == 's')
 		l += ft_printstr(va_arg(args, char *));
 	else if (form == 'p')
-		l += ft_printpoint(va_arg(args, unsigned long));
+		l += ft_printptr(va_arg(args, unsigned long));
 	else if (form == 'd' || form == 'i')
 		l += ft_printnbr(va_arg(args, int));
 	else if (form == 'u')
@@ -47,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			l = ft_print_specif(format, format[i + 1]);
+			l = ft_print_specif(arg, format[i + 1]);
 			i++;
 		}
 		else

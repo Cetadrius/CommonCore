@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afilipe- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afilipe- <afilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:54:12 by afilipe-          #+#    #+#             */
-/*   Updated: 2024/10/31 13:54:14 by afilipe-         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:27:07 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			l = ft_print_specif(arg, format[i + 1]);
+			l += ft_print_specif(arg, format[i + 1]);
 			i++;
 		}
 		else

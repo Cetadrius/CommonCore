@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printpoint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afilipe- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afilipe- <afilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 09:55:23 by afilipe-          #+#    #+#             */
-/*   Updated: 2024/11/04 09:55:25 by afilipe-         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:35:07 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_printptr(unsigned long pointer)
 	l = 0;
 	if (!pointer)
 	{
-		ft_printc("(nill)");
+		ft_printstr("(nill)");
 		return (5);
 	}
 	else

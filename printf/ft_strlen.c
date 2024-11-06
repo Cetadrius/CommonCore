@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afilipe- <afilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afilipe- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 09:55:10 by afilipe-          #+#    #+#             */
-/*   Updated: 2024/11/05 16:09:49 by afilipe-         ###   ########.fr       */
+/*   Created: 2024/10/17 09:54:47 by afilipe-          #+#    #+#             */
+/*   Updated: 2024/10/17 09:54:49 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_printf.h"
 
-int	ft_printstr(char *s)
+int	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	if (s == NULL)
+	while (s[i] != '\0')
 	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
 		i++;
 	}
 	return (i);

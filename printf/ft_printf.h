@@ -13,22 +13,23 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "libft/libft.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-
-int		ft_printf(const char *format, ...);
-int		ft_printhex(unsigned int n, const char c);
-int		ft_printnbr(int n);
-int		ft_printptr(unsigned long pointer);
-int		ft_printstr(char *s);
-int		ft_printunsig(unsigned int);
-int		ft_printc(char c);
-int		ft_print_specif(va_list args, const char form);
-char    *ft_uitoa(unsigned int n);
-unsigned int    ft_numsize(unsigned int n);
-int     ft_phex(unsigned int n, const char c);
+int			ft_printf(const char *format, ...);
+int			ft_printhex(unsigned int n, const char c);
+int			ft_printnbr(int n);
+int			ft_printptr(unsigned long pointer);
+int			ft_printstr(char *s);
+int			ft_printunsig(unsigned int n);
+int			ft_printc(char c);
+int			ft_print_specif(va_list args, const char form);
+char		*ft_uitoa(unsigned int n);
+int			ft_phex(unsigned int n, const char c);
+char		*ft_itoa(int n);
+char		*ft_strdup(const char *s);
+int			ft_strlen(const char *s);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afilipe- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: afilipe- <afilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 09:55:34 by afilipe-          #+#    #+#             */
-/*   Updated: 2024/11/04 09:55:36 by afilipe-         ###   ########.fr       */
+/*   Created: 2024/11/05 13:33:25 by afilipe-          #+#    #+#             */
+/*   Updated: 2024/11/05 13:34:13 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	ft_printnbr(int n)
 	l = 0;
 	number = ft_itoa(n);
 	l = ft_printstr(number);
-	free(n);
+	free(number);
 	return (l);
 }

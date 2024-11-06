@@ -18,7 +18,8 @@ PRINTF_ARC	= libftprintf.a
 SRCS	= ft_print_auxft.c \
 				ft_printc.c ft_printf.c ft_printhex.c \
 				ft_printnbr.c ft_printpoint.c ft_printstr.c \
-				ft_printunsig.c ft_itoa.c ft_strlen.c ft_strdup.c
+				ft_printunsig.c ft_itoa.c ft_strlen.c ft_strdup.c \
+				ft_util.c
 
 OBJS	= ${SRCS:.c=.o}
 CC		= cc

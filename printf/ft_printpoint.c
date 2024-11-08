@@ -15,7 +15,7 @@
 int	ft_putpoint(unsigned long p)
 {
 	char	*base;
-	int			count;
+	int		count;
 
 	count = 0;
 	base = "0123456789abcdef";

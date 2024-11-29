@@ -58,7 +58,7 @@ char	*ft_bufferjoin(char *str1, char *str2)
 	newstr[i] = '\0';
 	if (str1)
 		free (str1);
-	return (newstr);	
+	return (newstr);
 }
 
 //@brief find a char in a given str;

@@ -1,60 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilipe- <afilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 07:14:07 by afilipe-          #+#    #+#             */
-/*   Updated: 2025/01/09 12:57:25 by afilipe-         ###   ########.fr       */
+/*   Created: 2025/01/09 08:13:55 by afilipe-          #+#    #+#             */
+/*   Updated: 2025/01/09 15:13:40 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack **a, int n)
+void	free_stacks(t_stack **a, t_stack **b)
 {
 	t_stack	*temp1;
 	t_stack	*temp2;
 
 	temp1 = *a;
-	temp2 = (*a)->next;
-	while (temp1->next)
+	while (temp1)
 	{
-		temp1 = temp1->next;
+		temp1 = (*a)->next;
+		free(*a);
+		*a = temp1;
 	}
-	temp1->next = *a;
-	(*a)->next = NULL;
-	*a = temp2;
-	if (n == 0)
+	free(a);
+	temp2 = *b;
+	while (temp2)
 	{
-		write(1, "ra\n", 3);
+		temp2 = (*b)->next;
+		free(*b);
+		*b = temp2;
 	}
+	free(b);
 }
 
-void	rb(t_stack **b, int n)
+void	free_input(char **str)
 {
-	t_stack	*temp1;
-	t_stack	*temp2;
+	int	i;
 
-	temp1 = *b;
-	temp2 = (*b)->next;
-	while (temp1->next)
+	i = 0;
+	while (str[i])
 	{
-		temp1 = temp1->next;
+		free(str[i++]);
 	}
-	temp1->next = *b;
-	(*b)->next = NULL;
-	*b = temp2;
-	if (n == 0)
-	{
-		write(1, "rb\n", 3);
-	}
+	free(str);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	complete_free(char **str, t_stack **a, t_stack **b, int argc)
 {
-	ra (a, 1);
-	rb (b, 1);
-	write(1, "rr\n", 3);
+	if (argc == 2 && str)
+	{
+		free_input(str);
+	}
+	free_stacks(a, b);
 }

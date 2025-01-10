@@ -5,53 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilipe- <afilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 11:14:24 by afilipe-          #+#    #+#             */
-/*   Updated: 2025/01/07 11:22:06 by afilipe-         ###   ########.fr       */
+/*   Created: 2025/01/09 07:07:25 by afilipe-          #+#    #+#             */
+/*   Updated: 2025/01/09 07:13:57 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack **destination, t_stack **source)
+void	pa(t_stack **a, t_stack **b)
 {
-	t_stack	*stack_to_push;
+	t_stack	*temp1;
+	t_stack	*temp2;
 
-	if (*source == NULL)
+	if (!(*b))
 		return ;
-	stack_to_push = *source;
-	*source = (*source)->next;
-	if (*source)
-	{
-		(*source)->prev = NULL;
-	}
-	stack_to_push->prev = NULL;
-	if (*destination == NULL)
-	{
-		*destination = stack_to_push;
-		stack_to_push->next = NULL;
-	}
-	else
-	{
-		stack_to_push->next = *destination;
-		stack_to_push->next->prev = stack_to_push;
-		*destination = stack_to_push;
-	}
+	temp1 = *b;
+	temp2 = (*b)->next;
+	temp1->next = *a;
+	*b = temp2;
+	*a = temp1;
+	write(1, "pa\n", 3);
 }
 
-void	pa(t_stack **a, t_stack **b, bool check)
+void	pb(t_stack **a, t_stack **b)
 {
-	push(a, b);
-	if (!check)
-	{
-		write(1, "pa\n", 3);
-	}
-}
+	t_stack	*temp1;
+	t_stack	*temp2;
 
-void	pb(t_stack **b, t_stack **a, bool check)
-{
-	push(b, a);
-	if (!check)
-	{
-		write(1, "pb\n", 3);
-	}
+	if (!(*a))
+		return ;
+	temp1 = *a;
+	temp2 = (*a)->next;
+	temp1->next = *b;
+	*a = temp2;
+	*b = temp1;
+	write(1, "pb\n", 3);
 }

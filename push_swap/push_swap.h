@@ -5,94 +5,78 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilipe- <afilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 14:37:48 by afilipe-          #+#    #+#             */
-/*   Updated: 2025/01/07 13:35:56 by afilipe-         ###   ########.fr       */
+/*   Created: 2025/01/07 15:48:41 by afilipe-          #+#    #+#             */
+/*   Updated: 2025/01/09 13:20:49 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdbool.h>
 # include <limits.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
-	int				nbr;
+	long			data;
 	int				index;
-	int				moves;
-	int				push_total;
-	bool			abv_med;
-	bool			cheap;
-	struct s_stack	*node;
 	struct s_stack	*next;
-	struct s_stack	*prev;	
-}					t_stack;
+}	t_stack;
 
-//utillity fuctions
+// utility functions
 
-void			ft_putstr_fd(char *s, int fd);
-long			ft_atol(const char *str);
-char			**ft_split(char *str, char sep);
-static char		*next_word(char *str, char sep);
-static int		count_words(char *str, char sep);
+int		ft_isdigit(int c);
+void	ft_putstr_fd(char *s, int fd);
+int		stack_size(t_stack **a);
+int		is_sorted(t_stack **a);
+char	**ft_split(char const *s, char c);
+long	ft_atol(const char *str);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
-//Errors
+// movement functions
 
-void			free_split(char **argv);
-void			clear_stack(t_stack **stack);
-void			error(t_stack **a, char **argv, bool flag_argc_2);
-int				repeted_values(t_stack *val, int n);
-int				syntax(char *strnbr);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a, int n);
+void	rb(t_stack **b, int n);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, int n);
+void	rrb(t_stack **b, int n);
+void	rrr(t_stack **a, t_stack **b);
+void	sa(t_stack **a, int n);
+void	sb(t_stack **b, int n);
+void	ss(t_stack **a, t_stack **b);
 
-//stack utillities
+// free functions
 
-void			join_stack(t_stack **st, int nbr);
-t_stack			*last_node(t_stack *list);
-t_stack			*smallest_stack(t_stack *stack);
-t_stack			*cheap(t_stack *stack);
-void			initialize_stack(t_stack **a, char **argv, bool flag_argc_2);
-int				stack_size(t_stack *stack);
-void			start_position(t_stack *stack);
+void	free_stacks(t_stack **a, t_stack **b);
+void	free_input(char **str);
+void	complete_free(char **str, t_stack **a, t_stack **b, int argc);
 
-//stack management
+//errors management
 
-void			start_tables(t_stack *a, t_stack *b);
-void			push_swap(t_stack **a, t_stack **b);
-void			three_sort(t_stack **a);
-void			five_sort(t_stack **a, t_stack **b);
-static void		move_plates(t_stack **a, t_stack **b);
-static void		find_target(t_stack *a, t_stack *b);
-void			define_cheap(t_stack *b);
-void			set_moves(t_stack *a, t_stack *b);
-bool			stack_sort(t_stack *stack);
-static t_stack	*ft_highest(t_stack *stack);
+void	imput_error(char **imput, int ac, t_stack **a, t_stack **b);
+void	min_max_error(char **imput, int ac, t_stack **a, t_stack **b);
+void	duplicates_error(char **imput, int ac, t_stack **a, t_stack **b);
+void	list_error(char **imput, int ac, t_stack **a, t_stack **b);
 
-// Main
-int				main(int argc, char **argv);
+//main
+int		main(int ac, char **av);
 
-//moves
+// parce and stacks
 
-static void		rotate_both(t_stack **a, t_stack **b, t_stack *cheap_stack);
-static void		reverse_rotate_both(t_stack **a, t_stack **b,
-					t_stack *cheap_stack);
-void			finish_rotation(t_stack **stack, t_stack *top_stack, char name);
-static void		rotate(t_stack **stack);
-void			ra(t_stack **a, bool check);
-void			rb(t_stack **b, bool check);
-void			rr(t_stack **a, t_stack **b, bool check);
-static void		reverse_rotate(t_stack **stack);
-void			rra(t_stack **a, bool check);
-void			rrb(t_stack **b, bool check);
-void			rrr(t_stack **a, t_stack **b, bool check);
-static void		push(t_stack **destination, t_stack **source);
-void			pa(t_stack **a, t_stack **b, bool check);
-void			pb(t_stack **b, t_stack **a, bool check);
-void			sa(t_stack **a, bool check);
-void			sb(t_stack **b, bool check);
-static void		swap(t_stack **header);
-void			ss(t_stack **a, t_stack **b, bool check);
+char	**imput_args(int ac, char **av, t_stack **a, t_stack **b);
+void	fill_stack(char **imput, t_stack **a, t_stack **b);
+void	insert_stack(t_stack **a, int n);
+
+// sorting
+
+void	choose_sort(t_stack **a, t_stack **b);
+void	sort_five(t_stack **a, t_stack **b, int n);
+void	sort_four(t_stack **a, t_stack **b, int n);
+void	sort_three(t_stack **a);
+void	radix_sort(t_stack **a, t_stack **b);
 
 #endif

@@ -5,49 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: afilipe- <afilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 09:01:27 by afilipe-          #+#    #+#             */
-/*   Updated: 2025/01/07 13:37:23 by afilipe-         ###   ########.fr       */
+/*   Created: 2025/01/09 07:21:16 by afilipe-          #+#    #+#             */
+/*   Updated: 2025/01/09 12:58:29 by afilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a, bool check)
+void	sa(t_stack **a, int n)
 {
-	swap(a);
-	if (!check)
-		write(1, "sa\n", 3);
-}
+	int	i;
+	int	h;
 
-void	sb(t_stack **b, bool check)
-{
-	swap(b);
-	if (!check)
-		write(1, "sb\n", 3);
-}
-
-void	ss(t_stack **a, t_stack **b, bool check)
-{
-	swap(a);
-	swap(b);
-	if (!check)
-		write(1, "ss\n", 3);
-}
-
-static void	swap(t_stack **header)
-{
-	int	len;
-
-	len = stack_size(*header);
-	if (*header == NULL || header == NULL || len == 1)
-		return ;
-	*header = (*header)->next;
-	(*header)->prev->prev = *header;
-	(*header)->prev->next = (*header)->next;
-	if ((*header)->next)
+	i = (*a)->data;
+	h = (*a)->index;
+	(*a)->data = (*a)->next->data;
+	(*a)->index = (*a)->next->index;
+	(*a)->next->index = h;
+	(*a)->next->data = i;
+	if (n == 0)
 	{
-		(*header)->next->prev = (*header)->prev;
+		write(1, "sa\n", 3);
 	}
-	(*header)->next = (*header)->prev;
-	(*header)->prev = NULL;
+}
+
+void	sb(t_stack **b, int n)
+{
+	int	i;
+	int	h;
+
+	i = (*b)->data;
+	h = (*b)->index;
+	(*b)->data = (*b)->next->data;
+	(*b)->index = (*b)->next->index;
+	(*b)->next->index = h;
+	(*b)->next->data = i;
+	if (n == 0)
+	{
+		write(1, "sb\n", 3);
+	}
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	sa (a, 1);
+	sb (b, 1);
+	write(1, "ss\n", 3);
 }

@@ -6,16 +6,15 @@
 #    By: afilipe- <afilipe-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/07 10:11:27 by afilipe-          #+#    #+#              #
-#    Updated: 2025/01/07 12:28:17 by afilipe-         ###   ########.fr        #
+#    Updated: 2025/01/09 13:10:53 by afilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SCC = cc
 GDB = -g
 FLAGS = -Wall -Werror -Wextra
-SRC = errors.c push_swap_init.c push_swap.c push.c \
-	reverse_rotate.c rotate.c sort.c split.c stack_utils.c \
-	stack.c swap.c util.c main.c 
+SRC = errors.c free.c ft_split.c parce.c push.c push_swap.c \
+reverse.c rotate.c sort.c stack_mag.c swap.c utilityfn.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 RM = rm -f
